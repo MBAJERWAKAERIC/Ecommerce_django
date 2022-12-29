@@ -1,0 +1,11 @@
+   					for main content
+	 <script script="{% static 'app/js/owl.caroousel.min.js'%}"</script>
+        <script script="{% static 'app/js/all.min.js'%}"</script>
+        <script script="{% static 'app/js/myscript.js'%}"</script>
+
+
+			for header
+         <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}"/>
+        <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}"/>
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}"/>
+        
