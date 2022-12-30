@@ -67,21 +67,36 @@
               </div>
               <ul class="navbar-nav me auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown mx-2">
-                  <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Nilesh
                   </a>
                   
                   <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <li><a class="ndropdown-item" href="{% url 'profile' %}" >Profile</a></li>
-                    <li><a class="ndropdown-item" href="{% url 'orders' %}" >Orders</a></li>
-                    <li><a class="ndropdown-item" href="{% url 'passwordchange' %}" >Change password</a></li>
-                    <li><a class="ndropdown-item" href="{% url 'logout' %}" >Logout</a></li>
+                    <li><a class="ndropdown-item" href="#" >Profile</a></li>
+                    <li><a class="ndropdown-item" href="#" >Orders</a></li>
+                    <li><a class="ndropdown-item" href="#" >Change password</a></li>
+                    <li><a class="ndropdown-item" href="#" >Logout</a></li>
+                  </ul>
+               </li>
+                   <li class="nav-item mx-2">
+                    <a href="#" class="nav-link text-white">Cart 4</a>
+                   </li>
+                   <li class="nav-item mx-2">
+                    <a href="#" class="nav-link text-white">Widh list 4</a>
+                   </li>
+                   <li class="nav-item mx-2">
+                    <a href="#" class="nav-link text-white">Log in</a>
+                   </li>
+                   <li class="nav-item mx-2">
+                    <a href="#" class="nav-link text-white">Registration</a>
+                   </li>
               </ul>
             </div>
-          </nav>
-        </div>
+           </nav>
+         </div>
          
+         {% block banner-slider %} {% endblock banner-slider %}
          {% block main-content %} {% endblock main-content %}
-         <footer>
+         <footer class="containner-fluid fixed-bottom bg-success text-center p-2 mt-5">
             copyright : 2022 || developed by : MBAJE RWAKA RWAKA 
          </foot>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

@@ -1,6 +1,27 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block title %} MRE-soft{% endblock title %}
+
+{% block banner-slider %} 
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'app/images/banner/bb1.png' %}" class="d-block w-100" alt="banner image">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'app/images/banner/bb2.png' %}" class="d-block w-100" alt="banner image">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'app/images/banner/bb3.png' %}" class="d-block w-100" alt="banner image">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'app/images/banner/bb4.png' %}" class="d-block w-100" alt="banner image">
+            </div>
+             
+        </div>
+    </div>
+{% endblock banner-slider %}
+
 {% block main-content %}
     <h1>Welcome MBRE-SOft</h1>
 {% endblock main-content %}
