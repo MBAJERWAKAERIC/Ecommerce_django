@@ -3,7 +3,21 @@
 {% block title %} MRE-soft | Category{% endblock title %}
 
 {% block main-content %}
-    <h1>
-        Product Details {{pk}}
-    </h1>
+   <div class="container">
+    <div class="row flex justify-content-between">
+        <div class="img2 col-lg-5 mt-5">
+            <img src="{{ product.product_image.url }}" class="image col-xs-6
+            col-sm-12 col-lg-12 mt-3 text-sm-center w-100 h-75" alt="">
+        </div>
+        <div class="productdetail col-lg-5">
+            <h1 style="font-family: Georgia; font-size:50px;">{{ product.title}}</h1>
+            <h5>Rs.{{ product.discounted_price}}/-</h5>
+            <small class="text-decoration-line-through text-muted fs-5"><del>Rs. {{product.selling_price}}/-</del></small>
+            <br><br><h4>Product Features</h4>
+            <ul class="fs-5" style="font-family: Rajdhani,">
+                <li>{{product.descriptions}}</li>
+            </ul>
+        </div>
+    </div>
+ </div>
 {% endblock main-content %}
