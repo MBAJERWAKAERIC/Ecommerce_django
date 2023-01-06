@@ -3,7 +3,35 @@
 {% block title %} MRE-soft | Category{% endblock title %}
 
 {% block main-content %}
-<h1>
-    category
-</h1>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="list-group">
+                    {% for val in title %}
+                          <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                          {{val.title}} </a>
+                     {% endfor %}
+                </div>
+            </div>
+                 <div class="col-sm-9">
+                    <div class="row">
+                        {% for prod in product %}
+                            <div class="col text-center mb-4">
+                                <a href="#" class="btn">
+                                    <div>
+                                        <img src="{{prod.product_image.url}}" width="300px" height="200px">
+                                        <div class="fw-bold">{{prod.title}}</div>
+                                        <div class="fw-bold text-danger">
+                                            Rs.{{prod.discounted_price}}/-
+                                            <small class="fw-light text-decoration-line-throught">{{prod.selling_price}}</small>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                 </div>
+        </div>
+    </div>
 {% endblock main-content %}
