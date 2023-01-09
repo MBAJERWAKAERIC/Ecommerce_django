@@ -8,6 +8,34 @@
             <div class="col-sm-6 offset-sm-3">
                 <h3> Customer Registration</h3>
                 <hr>
+                <form action="" method="post" novalidate class="shadow p-5">
+                    {% csrf_token %}
+                    {% for fm in form %}
+                    {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                    <br> 
+                    {% endfor %}
+                    <input type="submit" value="submit" class="btn btn-primary"> <br>
+                     
+                    <div class="text-center text-primary fw-bold">
+                        <small>
+                            Existing User? 
+                            <a href="#" class="text-danger"> Login Now </a>
+                        </small>
+                    </div>
+
+                    {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="alert alert-danger my-3">{{error}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% if messages %}
+                    {% for msg in messages %}
+                        <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}
+                            
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                </form>
             </div>
         </div>
     </div>
