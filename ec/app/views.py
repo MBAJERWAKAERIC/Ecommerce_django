@@ -36,4 +36,4 @@ class ProductDetail(View):
 class CustomerRegistrationView(View):
     def get(self, request):
         form = CustomerRegistrationForm()
-        return render(request, 'app/customerregistrationform.html', locals())
+        return render(request, 'app/customerregistration.html', locals())
