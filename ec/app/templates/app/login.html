@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} MRE-soft | Login {% endblock title %}
+
+{% block main-content %} 
+<div class="container">
+    <div class="row my-3">
+        <div class="col-sm-6 offset-sm-3">
+            <h3 class="col-sm-6 offset-sm-3">Login</h3>
+            <hr>
+
+            <form action="" method="post" novalidate class="shadow p-5">
+                {% csrf_token %}
+                {% for fm in form %}
+                {{fm.label_tag}} {{fm}}
+                <small class="text-danger">{{fm.errors|striptags}}</small>
+                <br>
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content %} 
