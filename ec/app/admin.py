@@ -8,9 +8,6 @@ from . models import Customer, Product
 #@admin.site.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'discounted_price', 'category', 'product_image']
-    
-
-
 
 @admin.register(Customer)
 class CustomerModelAdmin(admin.ModelAdmin):

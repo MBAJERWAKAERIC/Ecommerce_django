@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} MRE-soft | Profile {% endblock title %}
+
+{% block main-content %} 
+    <div class="container my-5">
+        <div class="row">
+            <h3>Welcom <span class="text-capitalize">{{request.user}}</span></h3>
+        </div>
+        <div class="col-ms-2 border-end">
+            <ul class="list-unistyled">
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Profile</a></li>
+                <li class="d-grid"><a href="{% url 'adress' %}" class="btn btn-primary">Adress</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock main-content %} 
