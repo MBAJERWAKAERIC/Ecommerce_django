@@ -1,6 +1,62 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
+STATE_CHOICES = (
+('Abuja', 'Nigeria'),
+('Accra', 'Ghana'),
+('Addis Abba', 'Ethiopia'),
+('Algiers', 'Algeria'),
+('Antananarivo', 'Madagascar'),
+('Asmera', 'Eritrea'),
+('Bamako', 'Mali'),
+('Bangu', ' Central African Republic'),
+('Banjul', 'Gambia'),
+('Bissau', 'Guinea-Bissau'),
+('Brazzaville', ' Republic of the Congo'),
+('Bujumbura', ' Burundi'),
+('Cairo', 'Egypt'),
+('Conakry', ' Guinea'),
+('Dakar', ' Senegal'),
+('Dar es Salaam', ' Tanzania'),
+('Djibouti City', ' Djibouti'),
+('Freetown', 'Sierra Leone'),
+('Gaborone', 'Botswana'),
+('Harare', 'Zimbabwe'),
+('Juba', ' South Sudan'),
+('Kampala', ' Uganda'),
+('Khartoum', ' Sudan'),
+('Kigali', 'Rwanda'),
+('Kinshasa', ' Democratic Republic of the Congo'),
+('Libreville', ' Gabon'),
+('Lilongwe', ' Malawi'),
+('Lome', ' Togo'),
+('Luanda', ' Angola'),
+('Lusaka', ' Zambia'),
+('Malabo', ' Equatorial Guinea'),
+('Maputo', ' Mozambique'),
+('Maseru', 'Lesotho'),
+('Mbabane', ' Swaziland'),
+('Mogadishu', ' Somalia'),
+('Monrovia', ' Liberia'),
+('Moroni', 'Comoros'),
+('Nairobi', ' Kenya'),
+('N’Djamena', ' Chad'),
+('Niamey', ' Niger'),
+('Nouakchott', ' Mauritania'),
+('Ouagadougou', ' Burkina Faso'),
+('Port Louis', ' Mauritius'),
+('Pretoria', ' South Africa'),
+('Porto Novo', ' Benin'),
+('Praia', ' Cape Verde'),
+('Rabat', ' Morocco'),
+('Tripoli', ' Libya'),
+('Tunis', ' Tunisia'),
+('Victoria', ' Seychelles'),
+('Windhoek', ' Namibia'),
+('Yamoussoukro', ' Cote d’Ivoire'),
+('Yaoundé', ' Cameroon'),
+ )
 
 CATEGORY_CHOICES = (
     ('CR', 'Curd'),
@@ -27,3 +83,11 @@ class Product(models.Model):
     
 class Customer(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    locality = models.CharField(max_length=200)
+    city = models.CharField(max_length=50)
+    mobile = models.IntegerField(default=0)
+    zipcode = models.IntegerField()
+    state = models.CharField(choices=STATE_CHOICES, max_length=100)
+    def _str_(self):
+        return self.name

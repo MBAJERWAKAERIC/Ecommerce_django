@@ -21,6 +21,4 @@ class MyPasswordResetForm(PasswordChangeForm):
         pass
 
 class CustomerProfileForm(forms.ModelForm):
-    
-                                
-                                
+         pass             
