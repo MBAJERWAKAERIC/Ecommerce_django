@@ -24,7 +24,7 @@ class MyPasswordResetForm(PasswordChangeForm):
 class CustomerProfileForm(forms.ModelForm):
         class Meta:
             model = Customer 
-            fields = ['name', 'user', 'locality', 'city', 'state', 'zipcode']
+            fields = ['name', 'locality', 'city', 'state', 'zipcode']
             widgets={
                 'name': forms.TextInput(attrs={'class': 'form-control'}),
                 'locality': forms.TextInput(attrs={'class': 'form-control'}),
