@@ -70,3 +70,7 @@ class ProfileView(View):
         else:
             messages.warning(request,"Invalid date")
         return render(request, 'app/profile.html', locals())
+    
+def adress(request):
+    add = Customer.objects.filter(user=request.user)
+    return render(request, 'app/address.html',locals())
