@@ -2,7 +2,7 @@ from django.db.models import Count
 from django.shortcuts import render
 from django.views import View
 from . models import Product
-from . forms import CustomerProfileForm, CustomerRegistrationForm
+from . forms import CustomerProfileForm, CustomerRegistrationForm, Customer
 from django.contrib import messages
 
 # Create your views here.
@@ -54,4 +54,19 @@ class ProfileView(View):
         form = CustomerProfileForm()
         return render(request, 'app/profile.html', locals())
     def post(self, request):
-            return render(request, 'app/profile.html', locals())
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            user = request.user
+            name = form.cleaned_data['name']
+            locality = form.cleaned_data['locality']
+            city = form.cleaned_data['city']
+            mobile = form.cleaned_data['mobile']
+            state = form.cleaned_data['state']
+            zipcode = form.cleaned_data['zipcode']
+            
+            reg = Customer(user=user, name=name, locality=locality, mobile=mobile, city=city,state=state, zipcode=zipcode)
+            reg.save()
+            messages.success(request,"congratulations! Profile save successfullu")
+        else:
+            messages.warning(request,"Invalid date")
+        return render(request, 'app/profile.html', locals())
