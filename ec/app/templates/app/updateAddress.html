@@ -7,12 +7,24 @@
     <div class="row">
        <h3>Welcom <span class="text-capitalize">{{request.user}}</span></h3>
     </div>
+    <div class="col-sm-8 offset-sm-1">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for fm in form %}
+                {{fm.label_tag}} {{fm}}<small class="text-danger">{{fm.errors|striptags}}</small> <br>
+                {% endfor %}
+            <div class="col-12 mt-3">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="{% url 'adress' %}" type="button" class="btn btn-danger">back </a>
+            </div>
+            
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </div>
 </div>
-<div class="col-sm-8 offset-sm-1">
-    <form action="" method="post">
-        {% csrf_token %}
-        {% for fm in form %}
-            {{fm.label_tag}} {{fm}}<small class="text-danger">{{fm.errors|striptags}}</small> <br>
-    </form>
-</div>
+
 {% endblock main-content %} 
