@@ -1,5 +1,5 @@
 from django.db.models import Count
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from . models import Product
 from . forms import CustomerProfileForm, CustomerRegistrationForm, Customer
@@ -77,9 +77,23 @@ def adress(request):
 
 class updateAdress(View):
     def get(self, request,pk):
-        form = CustomerProfileForm()
+        add = Customer.objects.get(pk=pk)
+        form = CustomerProfileForm(instance=add)
         return render(request, 'app/updateaddress.html',locals())
     def post(self, request,pk):
         form = CustomerProfileForm(request.POST)
-        return render(request, 'app/updateAddress.html',locals())
+        if form.is_valid():
+            add = Customer.objects.get(pk=pk)
+            add.user = request.user
+            add.name = form.cleaned_data['name']
+            add.locality = form.cleaned_data['locality']
+            add.city = form.cleaned_data['city']
+            add.mobile = form.cleaned_data['mobile']
+            add.state = form.cleaned_data['state']
+            add.zipcode = form.cleaned_data['zipcode']
+            add.save()
+            messages.success(request,"congratulations! Profile updated successfullu")
+        else:
+            messages.warning(request,"Invalid input data")
+        return redirect("address")
     
