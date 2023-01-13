@@ -95,5 +95,5 @@ class updateAdress(View):
             messages.success(request,"congratulations! Profile updated successfullu")
         else:
             messages.warning(request,"Invalid input data")
-        return redirect("address")
+        return redirect("adress")
     
