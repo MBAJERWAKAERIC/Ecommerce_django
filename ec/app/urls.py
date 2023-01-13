@@ -15,6 +15,7 @@ urlpatterns = [
     path("product-detail/<int:pk>", views.ProductDetail.as_view(),name="product-detail"),
     path("profile/" , views.ProfileView.as_view(),name="profile"),
     path("adress/" , views.adress, name="adress"),
+    path('updateAddress/<int:pk>', views.updateAdress.as_view(),name="updateAddress"),
     
     #login authentication
     path( 'registration/' , views.CustomerRegistrationView.as_view(), name='customerregistration'),

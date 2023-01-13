@@ -74,3 +74,12 @@ class ProfileView(View):
 def adress(request):
     add = Customer.objects.filter(user=request.user)
     return render(request, 'app/address.html',locals())
+
+class updateAdress(View):
+    def get(self, request,pk):
+        form = CustomerProfileForm()
+        return render(request, 'app/updateaddress.html',locals())
+    def post(self, request,pk):
+        form = CustomerProfileForm(request.POST)
+        return render(request, 'app/updateAddress.html',locals())
+    
