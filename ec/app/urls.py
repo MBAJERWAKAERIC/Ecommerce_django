@@ -17,6 +17,8 @@ urlpatterns = [
     path("adress/" , views.adress, name="adress"),
     path('updateAddress/<int:pk>', views.updateAdress.as_view(),name="updateAddress"),
     
+    path('add-to-cart/', views.addToCart, name="add-to-cart"),
+    
     #login authentication
     path( 'registration/' , views.CustomerRegistrationView.as_view(), name='customerregistration'),
     path('acounts/login/', auth_view.LoginView.as_view(template_name='app/login.html', authentication_form=LoginForm), name='login'),
