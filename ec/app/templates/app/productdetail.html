@@ -18,9 +18,11 @@
                 <li>{{product.description}}</li>
             </ul>
             <div class="button row flex" style="font-family: Rajdhani">
-                <button type="sumit" class="d-grid gap-2 btn1 btn btn-danger p-1 m-1 btn-lg text-decoration-none text-white"> Add to chart </button>
-            </div>
-            <div class=" d-grid gap-2 btn btn-dark p-1 m-1 btn-lg"><a href="#" class="text-decoration-none text-white"> Buy Now </a></div>
+                <form action="/add-to-cart" class="d-inline">
+                    <input type="hidden" name="prod_id" value={{product.id}} />
+                    <button type="sumit" class="btn btn-primary shadow px-5 py-2"> Add to chart </button>
+                </form>
+                <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-4"> buy Now</a>
             </div>
         </div>
     </div>
