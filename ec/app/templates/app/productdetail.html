@@ -17,13 +17,11 @@
             <ul class="fs-5" style="font-family: Rajdhani,">
                 <li>{{product.description}}</li>
             </ul>
-            <div class="button row flex" style="font-family: Rajdhani">
                 <form action="/add-to-cart" class="d-inline">
                     <input type="hidden" name="prod_id" value={{product.id}} />
-                    <button type="sumit" class="btn btn-primary shadow px-5 py-2"> Add to chart </button>
+                    <button type="submit" class="btn btn-primary shadow px-5 py-2"> Add to chart </button>
                 </form>
-                <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-4"> buy Now</a>
-            </div>
+                <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-4"> Buy Now</a>
         </div>
     </div>
  </div>
