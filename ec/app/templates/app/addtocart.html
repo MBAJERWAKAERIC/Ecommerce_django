@@ -9,31 +9,31 @@
         <h1 class="text-center mb-5"> Shopping Cart</h1>
         <div class="col-sm-8">
             <div class="card">
-            <div class="card-body">
-                <h3>Cart</h3>
-                {% for item in cart %}
-                <div class="row">
-                    <div class="col-sm-3 text-center align-self-center">
-                        <img src="{{ item.product.product_image.url }}" alt="" srcset="" clas="img-fluid img-thumbnail shadow-sm" height="150" width="150">
-                    </div>
-                    <h5> {{item.product.title}} </h5>
-                    <p class="mb-2 text-muted small">{{item.product.description}}</p>
-                    <div class="my-3">
-                        <label for="quantity"> Quantity: </label>
-                        <a class="minus-cart btn" pid={{item.product.id}}><i class="fa fa-minus-square fa-lg"></i></a><span id="quantity">{{item.quantity}}</span>
-                        <a class="plus-cart btn" pid={{item.product.id}}><i class="fa fa-plus-square fa-lg"></i></a>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <a href="#" class="remove-cart btn btn-sm btn-secondary mr-3" pid={{item.product.id}}>Remove item</a>
-                        <p class="mb-0"><span><strong>Rs. {{item.product.discounted_price}}</strong></span></p>
+                <div class="card-body">
+                    <h3>Cart</h3>
+                    {% for item in cart %}
+                    <div class="row">
+                        <div class="col-sm-3 text-center align-self-center">
+                            <img src="{{ item.product.product_image.url }}" alt="" srcset="" clas="img-fluid img-thumbnail shadow-sm" height="100" width="150">
+                        </div>
+                        <h5> {{item.product.title}} </h5>
+                        <p class="mb-2 text-muted small">{{item.product.description}}</p>
+                        <div class="my-3">
+                            <label for="quantity"> Quantity: </label>
+                            <a class="minus-cart btn" pid={{item.product.id}}><i class="fa fa-minus-square fa-lg"></i></a><span id="quantity">{{item.quantity}}</span>
+                            <a class="plus-cart btn" pid={{item.product.id}}><i class="fa fa-plus-square fa-lg"></i></a>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="remove-cart btn btn-sm btn-secondary mr-3" pid={{item.product.id}}>Remove item</a>
+                            <p class="mb-0"><span><strong>Rs. {{item.product.discounted_price}}</strong></span></p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <hr class="text-muted">
+            {% endfor %}
         </div>
-        <hr class="text-muted">
-        {% endfor %}
     </div>
-</div>
 </div>
 
 <div class="col-sm-4">
