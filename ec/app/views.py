@@ -117,7 +117,7 @@ def show_cart(request):
     return render(request, 'app/addtocart.html', locals())
 
 class checkout(View):
-    def get(self,reques):
+    def get(self,request):
         return render(request, 'app/checkout.html', locals())
 
 def plus_cart(request):
