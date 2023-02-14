@@ -116,17 +116,35 @@ def show_cart(request):
     totalamount = amount + 40
     return render(request, 'app/addtocart.html', locals())
 
-class checkout(View):
-    def get(self,request):
-        user=request.user
-        add=Customer.objects.filter(user=user)
-        cart_items=Cart.objects.filter(user=user)
+class CheckoutView(View):
+    def get(self, request):
+        user = request.user
+        if not user.is_authenticated:
+            # redirect to login page
+            return redirect("login")
+
+        customer = Customer.objects.filter(user=user).first()
+        if not customer:
+            # handle case where customer is not associated with the user
+            return redirect("customer_create")
+
+        cart_items = Cart.objects.filter(user=user)
         famount = 0
-        for p in cart_items:
-            value = p.quantity * p.product.discounted_price
-            famount = famount + value
-        totalamount = famount + 40
-        return render(request, 'app/checkout.html', locals())
+        for item in cart_items:
+            if not item.product:
+                # handle case where product is missing
+                continue
+            value = item.quantity * item.product.discounted_price
+            famount += value
+
+        total_amount = famount + 40
+        context = {
+            "customer": customer,
+            "cart_items": cart_items,
+            "total_amount": total_amount,
+        }
+
+        return render(request, "app/checkout.html", context)
 
 def plus_cart(request):
     if request.method == 'GET':
