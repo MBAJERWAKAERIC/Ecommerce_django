@@ -116,7 +116,7 @@ def show_cart(request):
     totalamount = amount + 40
     return render(request, 'app/addtocart.html', locals())
 
-class CheckoutView(View):
+class checkout(View):
     def get(self, request):
         user = request.user
         if not user.is_authenticated:
