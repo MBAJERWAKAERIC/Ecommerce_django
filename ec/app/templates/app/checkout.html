@@ -1,6 +1,6 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %} MRE-soft | Buy Now {% endblock title %}
+{% block title %} MRE-soft | Checkout {% endblock title %}
 {% block main-content %}
 <div class="container">
     {% if messages %}
@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <h5> Product: {{item.product.title}}</h5>
                     <p> Quantity: {{item.quantity}}</p>
-                    <p class="fw-bold"> Price: {{item.product.discounted.price}}</p>
+                    <p class="fw-bold"> Price: {{item.product.discounted_price}}</p>
                 </div>
             </div>
         {% endfor %}
@@ -38,12 +38,12 @@
                 </div>
                     <div class="form-check mt-2 mb-5">
                         <input class="form-check input" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
-                        <label class="form-check-labelnfw-bold" for="custadd{{forloop.counter}}">Address: {{forloop.counter}}</label>
+                        <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}">Address: {{forloop.counter}}</label>
                     </div>
                     {% endfor %}
                     <div class="form-check mb-3">
-                        <label for="totalamount" class="form-label">Total amount </label>
-                        <input type="number" class="form-control" name="totalamount" value={{totalamount}}readonly>
+                        <label for="totalmount" class="form-label">Total amount </label>
+                        <input type="number" class="form-control" name="totalmount" value={{totalamount}}readonly>
                     </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold"> Continue</button>
