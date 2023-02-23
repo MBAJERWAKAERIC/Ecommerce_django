@@ -91,13 +91,27 @@ class Customer(models.Model):
     state = models.CharField(choices=STATE_CHOICES, max_length=100)
     def _str_(self):
         return self.name
-    
+
 class Cart(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
-    
+
     @property
     def total_cost(self):
        return self.quantity * self.product.discounted_price
-    
+
+class Payment(models.Model):
+    user = models.Foreignkey
+
+class OrderPlaced(models.Model):
+    user = models.ForeignKey(UserUser,on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    ordered_date = models.DateTimeField(auto_now_add=True)
+    status = models.Charfield(max_length=50,chices=STATUS_CHOICES, default='pending')
+    payment = models.ForeignKey(Payment, on_delete=models.CASCADE,default="")
+    @property
+    def total_cost(self):
+        return self.quantity * self.product.discounted_price
