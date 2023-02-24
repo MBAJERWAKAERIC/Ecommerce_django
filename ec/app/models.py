@@ -101,8 +101,20 @@ class Cart(models.Model):
     def total_cost(self):
        return self.quantity * self.product.discounted_price
 
+STATUS_CHOICES = (
+    ('Accepted', 'Accepted'),
+    ('Packed', 'Packed'),
+    ('On the way', 'On the way'),
+    ('Delivered', 'Delivered'),
+    ('Pending', 'Pending'),
+)
+
 class Payment(models.Model):
-    user = models.Foreignkey
+    user = models.Foreignkey(user,on_delete=models.CASCADE)
+    amount = models.FloatField()
+    razorpay_order_id = models.CharField(max_lenght=100,blank=True,null=True)
+    razorpay_payment_status = models.CharField(max_lenght=100,blank=True,null=True)
+    razorpay_payment_id = models.CharField(max_lenght=100,blank=True,null=True)
 
 class OrderPlaced(models.Model):
     user = models.ForeignKey(UserUser,on_delete=models.CASCADE)
